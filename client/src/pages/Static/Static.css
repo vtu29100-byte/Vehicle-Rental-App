@@ -1,0 +1,42 @@
+.static-page {
+  padding: 4rem 1.5rem;
+  max-width: 800px;
+}
+
+.static-header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.static-header h1 {
+  font-size: 2.5rem;
+}
+
+.static-content {
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+}
+
+.static-content p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+.static-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: var(--primary);
+}
+
+.static-content ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.static-content li {
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}

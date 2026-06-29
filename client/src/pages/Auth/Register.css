@@ -1,0 +1,6 @@
+/* Register specific styles, most styles inherited from Login.css */
+
+.auth-page {
+  /* We can override background here if we want a different one for register */
+  background-image: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1614200187524-dc4b892acf16?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+}

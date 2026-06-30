@@ -1,4 +1,4 @@
-import sequelize, { connectDB } from '../config/database.js';
+import { connectDB } from '../config/database.js';
 import Vehicle from '../models/Vehicle.js';
 
 const MOCK_VEHICLES = [
@@ -38,7 +38,8 @@ const seedDB = async () => {
   try {
     await connectDB();
     console.log('Seeding Database...');
-    await Vehicle.bulkCreate(MOCK_VEHICLES, { ignoreDuplicates: true });
+    await Vehicle.deleteMany(); // Clear existing
+    await Vehicle.insertMany(MOCK_VEHICLES);
     console.log('Database seeded successfully!');
     process.exit(0);
   } catch (error) {

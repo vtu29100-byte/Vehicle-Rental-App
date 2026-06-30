@@ -1,28 +1,30 @@
-import { DataTypes } from 'sequelize';
-import sequelize from '../config/database.js';
+import mongoose from 'mongoose';
 
-const Booking = sequelize.define('Booking', {
+const bookingSchema = new mongoose.Schema({
   id: {
-    type: DataTypes.STRING,
-    primaryKey: true,
+    type: String,
+    required: true,
+    unique: true
   },
-  vehicleName: DataTypes.STRING,
-  brand: DataTypes.STRING,
-  image: DataTypes.STRING,
-  pickupDate: DataTypes.STRING,
-  returnDate: DataTypes.STRING,
+  vehicleName: String,
+  brand: String,
+  image: String,
+  pickupDate: String,
+  returnDate: String,
   status: {
-    type: DataTypes.STRING,
-    defaultValue: 'Upcoming',
+    type: String,
+    default: 'Upcoming',
   },
-  totalAmount: DataTypes.INTEGER,
-  location: DataTypes.STRING,
+  totalAmount: Number,
+  location: String,
   userId: {
-    type: DataTypes.STRING,
-    allowNull: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: false
   }
 }, {
   timestamps: true,
 });
 
+const Booking = mongoose.model('Booking', bookingSchema);
 export default Booking;

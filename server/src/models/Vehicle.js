@@ -1,38 +1,39 @@
-import { DataTypes } from 'sequelize';
-import sequelize from '../config/database.js';
+import mongoose from 'mongoose';
 
-const Vehicle = sequelize.define('Vehicle', {
+const vehicleSchema = new mongoose.Schema({
   id: {
-    type: DataTypes.STRING,
-    primaryKey: true,
+    type: String,
+    required: true,
+    unique: true
   },
   name: {
-    type: DataTypes.STRING,
-    allowNull: false,
+    type: String,
+    required: true,
   },
   brand: {
-    type: DataTypes.STRING,
-    allowNull: false,
+    type: String,
+    required: true,
   },
   type: {
-    type: DataTypes.STRING,
-    allowNull: false,
+    type: String,
+    required: true,
   },
   modelYear: {
-    type: DataTypes.INTEGER,
+    type: Number,
   },
   pricePerDay: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
+    type: Number,
+    required: true,
   },
   image: {
-    type: DataTypes.STRING,
+    type: String,
   },
   features: {
-    type: DataTypes.JSON, // SQLite supports JSON data types in modern versions via Sequelize
+    type: [String], 
   }
 }, {
   timestamps: true,
 });
 
+const Vehicle = mongoose.model('Vehicle', vehicleSchema);
 export default Vehicle;
